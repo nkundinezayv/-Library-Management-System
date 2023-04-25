@@ -1,0 +1,68 @@
+Project: Library Management System
+I have chosen to create a Library Management System that can handle all operations such as signing up users as admins or regular users, enabling users to borrow and return books, and allowing admins to manage the system. To accomplish this project, I have developed a plan which includes the following:
+
+UI: I plan to use C++ CLR, which is a Win Form of C++, for the user interface. The UI will be simple and able to support all program functionalities, including authentication, book borrowing, and returning.
+
+DATABASE: For the database, I plan to use MariaDB SQL, which will be hosted in AWS.
+
+•	USER CLASS: This class will manage user accounts, including user authentication, creation, and modification. It will have a dependency on the SQL Class to retrieve and store user data in the database. The User Class will have the following important fields:
+
+userID: the unique identifier for the user
+username: the username used for authentication
+password: the password used for authentication
+name: the user's name
+email: the user's email address
+isAdmin: a Boolean value indicating whether the user is an admin or not.
+
+
+•	The User Class has the following important methods:
+createUser(): creates a new user account and stores it in the database
+getUser(): retrieves a user's information from the database
+updateUser(): updates a user's information in the database
+deleteUser(): deletes a user's account from the database
+
+
+•	Book Class:
+This class manages books in the library, including book information (e.g. title, author, ISBN or book ID) and book availability (e.g. borrowed or not). It has a dependency on the SQL Class to retrieve and store book data in the database. The Book Class has the following important fields:
+bookID: the unique identifier for the book
+title: the title of the book
+author: the author of the book
+ISBN: the ISBN number of the book
+isBorrowed: a boolean indicating if the book is currently borrowed
+
+•	The Book Class has the following important methods:
+
+addBook(): adds a new book to the library and stores it in the database
+getBook(): retrieves a book's information from the database
+updateBook(): updates a book's information in the database
+deleteBook(): removes a book from the library and deletes its record from the database
+searchBook(): searches for books based on various criteria such as title, author, or ISBN
+
+
+•	Borrowing Class:
+This class manages the borrowing process, including creating and closing borrowing transactions. It has a dependency on the SQL Class to retrieve and store borrowing data in the database. The Borrowing Class has the following important fields:
+borrowingID: the unique identifier for the borrowing transaction
+bookID: the identifier for the borrowed book
+userID: the identifier for the user who borrowed the book
+dateBorrowed: the date the book was borrowed
+dateDue: the due date for the book to be returned
+dateReturned: the date the book was returned (null if not yet returned)
+
+•	The Borrowing Class has the following important methods:
+
+borrowBook(): creates a new borrowing transaction and stores it in the database
+returnBook(): closes a borrowing transaction and updates the book's availability in the database
+getBorrowings(): retrieves a user's borrowing history from the database
+The Borrowing Class uses a hashmap data structure to store
+
+
+
+•	The Admin Class can have the following important fields:
+
+adminID: the unique identifier for the admin user
+username: the username used for authentication
+password: the password used for authentication
+•	The Admin Class can have the following important methods:
+
+addBook(): adds a new book to the library and stores it in the database
+deleteBook(): removes a book from the library and deletes its record from the database
